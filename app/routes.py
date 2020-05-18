@@ -27,10 +27,18 @@ def user_detail(id):
 
 
 # event route
-@app.route("/events")
+@app.route("/events", methods=['POST', 'GET'])
 def events():
-   return EventController.getList()
+   if request.method == 'GET':
+      return EventController.getList()
+   else:
+      return EventController.insert()
 
-@app.route("/events/<id>")
+@app.route("/events/<id>", methods=['GET', 'PUT', 'DELETE'])
 def event_detail(id):
-   return EventController.getDetail(id)
+   if request.method == 'GET':
+      return EventController.getDetail(id)
+   elif request.method == 'PUT':
+      return EventController.update(id)
+   else:
+      return EventController.delete(id)

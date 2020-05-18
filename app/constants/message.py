@@ -11,7 +11,12 @@ class Message():
     CONST_SUCCESS_UPDATE_USER_MESSAGE = "Success update user to db!"
     CONST_SUCCESS_DELETE_USER_MESSAGE = "Success delete user from db!"
     CONST_REQUIRED_INSERT_USER_VALIDATION = "name, email and password is required"
-    CONST_REQUIRED_UPDATE_USER_VALIDATION = "new email is required"
+    CONST_REQUIRED_UPDATE_USER_VALIDATION = "email is required"
 
     # Event
     CONST_EVENT_NOT_FOUND = "Event not found"
+    CONST_SUCCESS_INSERT_EVENT_MESSAGE = "Success insert event to db!"
+    CONST_SUCCESS_UPDATE_EVENT_MESSAGE = "Success update event to db!"
+    CONST_SUCCESS_DELETE_EVENT_MESSAGE = "Success delete event from db!"
+    CONST_REQUIRED_INSERT_EVENT_VALIDATION = "name, description and user_id is required"
+    CONST_REQUIRED_UPDATE_EVENT_VALIDATION = "description is required"

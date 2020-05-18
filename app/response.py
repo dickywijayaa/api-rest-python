@@ -1,5 +1,5 @@
-from flask import jsonify, make_response
 from app.constants.message import Message
+from flask import jsonify, make_response
 
 
 def ok(data, message):

@@ -1,8 +1,8 @@
 from app.model.user import Users
 from app import response, app
 from app import db
-from flask import request
 from app.constants.message import Message
+from flask import request
 
 def getList():
     try:
