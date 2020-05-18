@@ -15,9 +15,11 @@ def users():
    else:
       return UserController.insert()
 
-@app.route("/users/<id>", methods=['GET', 'PUT'])
+@app.route("/users/<id>", methods=['GET', 'PUT', 'DELETE'])
 def user_detail(id):
    if request.method == 'GET':
       return UserController.getDetail(id)
-   else:
+   elif request.method == 'PUT':
       return UserController.update(id)
+   else:
+      return UserController.delete(id)

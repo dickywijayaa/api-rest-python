@@ -86,3 +86,17 @@ def update(user_id):
     except Exception as e:
         print(e)
         return response.internalServerError()
+
+def delete(user_id):
+    try:
+        user = Users.query.filter_by(id=user_id).first()
+        if not user:
+            return response.badRequest([], Message.CONST_USER_NOT_FOUND)
+
+        db.session.delete(user)
+        db.session.commit()
+
+        return response.ok("", Message.CONST_SUCCESS_DELETE_USER_MESSAGE)
+    except Exception as e:
+        print(e)
+        return response.internalServerError()
