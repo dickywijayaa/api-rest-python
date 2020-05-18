@@ -1,5 +1,6 @@
 from app import app
 from app.controller import UserController
+from flask import request
 
 @app.route('/')
 @app.route('/index')
@@ -7,10 +8,16 @@ def index():
    return "Hello, World!"
 
 # user route
-@app.route("/users")
+@app.route("/users", methods=['POST', 'GET'])
 def users():
-   return UserController.getList()
+   if request.method == 'GET':
+      return UserController.getList()
+   else:
+      return UserController.insert()
 
-@app.route("/users/<id>")
+@app.route("/users/<id>", methods=['GET', 'PUT'])
 def user_detail(id):
-   return UserController.getDetail(id)
+   if request.method == 'GET':
+      return UserController.getDetail(id)
+   else:
+      return UserController.update(id)
