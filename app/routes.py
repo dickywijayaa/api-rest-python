@@ -7,6 +7,7 @@ from flask import request
 def index():
    return "Hello, World!"
 
+
 # user route
 @app.route("/users", methods=['POST', 'GET'])
 def users():
@@ -24,7 +25,12 @@ def user_detail(id):
    else:
       return UserController.delete(id)
 
+
 # event route
 @app.route("/events")
 def events():
    return EventController.getList()
+
+@app.route("/events/<id>")
+def event_detail(id):
+   return EventController.getDetail(id)
