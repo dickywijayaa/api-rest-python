@@ -1,5 +1,5 @@
 from app import app
-from app.controller import UserController
+from app.controller import UserController, EventController
 from flask import request
 
 @app.route('/')
@@ -23,3 +23,8 @@ def user_detail(id):
       return UserController.update(id)
    else:
       return UserController.delete(id)
+
+# event route
+@app.route("/events")
+def events():
+   return EventController.getList()
